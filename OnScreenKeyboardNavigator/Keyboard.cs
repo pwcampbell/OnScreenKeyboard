@@ -12,6 +12,7 @@ namespace OnScreenKeyboardNavigator
 
         public Keyboard()
         {
+            // Defaults to generic keyboard configuration if keyboard.config is not found.
             if (!File.Exists(KEYBOARD_CONFIG_FILE_NAME))
             {
                 using (StreamWriter sw = File.AppendText(KEYBOARD_CONFIG_FILE_NAME))
@@ -23,6 +24,12 @@ namespace OnScreenKeyboardNavigator
             GenerateKeys();
         }
 
+        /// <summary>
+        /// Get location of specific character on the keyboard.
+        /// </summary>
+        /// <param name="c">Character to retrieve</param>
+        /// <returns>Int array containting x and y coordinates of character</returns>
+        /// <exception cref="Exception"></exception>
         public int[] GetKey(char c)
         {
             if (Keys.ContainsKey(c))
@@ -35,6 +42,10 @@ namespace OnScreenKeyboardNavigator
             }
         }
 
+        /// <summary>
+        /// Generates the Keys dictionary from file.
+        /// </summary>
+        /// <exception cref="Exception"></exception>
         private void GenerateKeys()
         {
             int y = 0;

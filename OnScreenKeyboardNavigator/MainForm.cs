@@ -1,7 +1,3 @@
-using System.Diagnostics;
-using System.Security.Cryptography;
-using System.Windows.Forms;
-
 namespace OnScreenKeyboardNavigator
 {
     public partial class MainForm : Form
@@ -14,6 +10,11 @@ namespace OnScreenKeyboardNavigator
             _keys = new Keyboard();
         }
 
+        /// <summary>
+        /// Parses through selected file and attempts to generate keyboard navigation paths for every line.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void selectFileButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
@@ -34,7 +35,13 @@ namespace OnScreenKeyboardNavigator
             }
         }
 
-        // Maybe implement debounce someday
+        /// <summary>
+        /// Allows user to manually type in stream of characters to generate navigation path.
+        ///
+        /// Maybe implement debounce someday
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox_TextChanged(object sender, EventArgs e)
         {
             dataGridView.Rows.Clear();
@@ -43,6 +50,11 @@ namespace OnScreenKeyboardNavigator
             dataGridView.Rows[index].Cells[1].Value = GeneratePath(textBox.Text);
         }
 
+        /// <summary>
+        /// Generates path on the on screen board.
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
         private string GeneratePath(string text)
         {
             text = text.ToUpper();
