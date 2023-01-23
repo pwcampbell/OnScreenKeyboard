@@ -1,3 +1,5 @@
+using System;
+
 namespace OnScreenKeyboardNavigator
 {
     public partial class MainForm : Form
@@ -7,7 +9,15 @@ namespace OnScreenKeyboardNavigator
         public MainForm()
         {
             InitializeComponent();
-            _keys = new Keyboard();
+            try
+            {
+                _keys = new Keyboard();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Environment.Exit(0);
+            }
         }
 
         /// <summary>
@@ -60,43 +70,51 @@ namespace OnScreenKeyboardNavigator
             text = text.ToUpper();
 
             var path = string.Empty;
-            var cursor = new int[] { 0, 0 };
 
-            for (var i = 0; i < text.Length; i++)
+            try
             {
-                if (text[i] == ' ')
+                var cursor = new int[] { 0, 0 };
+                for (var i = 0; i < text.Length; i++)
                 {
-                    path += 'S';
-                    continue;
-                }
+                    if (text[i] == ' ')
+                    {
+                        path += 'S';
+                        continue;
+                    }
 
-                var charCoord = _keys.GetKey(text[i]);
+                    var charCoord = _keys.GetKey(text[i]);
 
-                // Calculate y-axis change
-                var vertDiff = charCoord[1] - cursor[1];
-                if (vertDiff > 0)
-                {
-                    path += new string('D', Math.Abs(vertDiff));
-                }
-                else if (vertDiff < 0)
-                {
-                    path += new string('U', Math.Abs(vertDiff));
-                }
+                    // Calculate y-axis change
+                    var vertDiff = charCoord[1] - cursor[1];
+                    if (vertDiff > 0)
+                    {
+                        path += new string('D', Math.Abs(vertDiff));
+                    }
+                    else if (vertDiff < 0)
+                    {
+                        path += new string('U', Math.Abs(vertDiff));
+                    }
 
-                // Calculate x-axis change
-                var horizDiff = charCoord[0] - cursor[0];
-                if (horizDiff > 0)
-                {
-                    path += new string('R', Math.Abs(horizDiff));
-                }
-                else if (horizDiff < 0)
-                {
-                    path += new string('L', Math.Abs(horizDiff));
-                }
+                    // Calculate x-axis change
+                    var horizDiff = charCoord[0] - cursor[0];
+                    if (horizDiff > 0)
+                    {
+                        path += new string('R', Math.Abs(horizDiff));
+                    }
+                    else if (horizDiff < 0)
+                    {
+                        path += new string('L', Math.Abs(horizDiff));
+                    }
 
-                path += '#';
+                    path += '#';
 
-                cursor = charCoord;
+                    cursor = charCoord;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "ERROR: " + ex.Message;
             }
 
             return string.Join(",", path.ToCharArray());
