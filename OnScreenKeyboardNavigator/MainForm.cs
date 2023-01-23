@@ -55,6 +55,8 @@ namespace OnScreenKeyboardNavigator
         private void textBox_TextChanged(object sender, EventArgs e)
         {
             dataGridView.Rows.Clear();
+            selectedFileLabel.Text = string.Empty;
+
             int index = dataGridView.Rows.Add();
             dataGridView.Rows[index].Cells[0].Value = textBox.Text;
             dataGridView.Rows[index].Cells[1].Value = GeneratePath(textBox.Text);
