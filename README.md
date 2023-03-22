@@ -1,4 +1,4 @@
-# pwcampbell-keyboard
+# On-screen Keyboard
 ## https://github.com/pwcampbell/OnScreenKeyboard
 
 ## Run directions
