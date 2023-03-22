@@ -33,7 +33,7 @@ export class app {
   }
 
   private translateInputToKeyBoard(keyboardLayout: string[][], input: string, currentX = 0, currentY = 0): string {
-    let operations: string[] = [];
+    const operations: string[] = [];
     Object.values(input).forEach((character: string) => {
       if (character !== ' ') {
         const target: { x: number; y: number } = this.getTargetValues(character, keyboardLayout);
