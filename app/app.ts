@@ -13,7 +13,7 @@ export class app {
     });
   }
 
-  getKeyboardLayout(): string[][] {
+  private getKeyboardLayout(): string[][] {
     const keyboardLayout: string[][] = [
       ['A', 'B', 'C', 'D', 'E', 'F'],
       ['G', 'H', 'I', 'J', 'K', 'L'],
@@ -31,7 +31,7 @@ export class app {
     return keyboardLayout;
   }
 
-  translateInputToKeyBoard(keyboardLayout: string[][], input: string, currentX = 0, currentY = 0): string {
+  private translateInputToKeyBoard(keyboardLayout: string[][], input: string, currentX = 0, currentY = 0): string {
     let operations: string[] = [];
     Object.values(input).forEach((character: string) => {
       if (character !== ' ') {
@@ -60,7 +60,8 @@ export class app {
 
     return output;
   }
-  getTargetValues(character: string, keyboardLayout: string[][]): { x: number, y: number } {
+
+  private getTargetValues(character: string, keyboardLayout: string[][]): { x: number, y: number } {
     let x = -1;
     let y = -1;
     keyboardLayout.forEach((row, yIndex) => {
