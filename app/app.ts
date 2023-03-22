@@ -1,5 +1,6 @@
 import fs from "fs";
 import readline from "readline";
+
 export class app {
   run() {
     const keyboardLayout = this.getKeyboardLayout();
