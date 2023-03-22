@@ -1,0 +1,28 @@
+{
+  "name": "pwcampbell-keyboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "initialize": "npx tsc --init",
+    "compile": "npx tsc",
+    "compile:watch": "npx tsc -w",
+    "start": "node .\\node_modules\\ts-node\\dist\\bin.js index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cameronbuck/pwcampbell-keyboard.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cameronbuck/pwcampbell-keyboard/issues"
+  },
+  "homepage": "https://github.com/cameronbuck/pwcampbell-keyboard#readme",
+  "devDependencies": {
+    "typescript": "^5.0.2"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.1"
+  }
+}
