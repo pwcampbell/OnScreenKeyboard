@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnScreenKeyboardManager", "OnScreenKeyboardManager\OnScreenKeyboardManager.csproj", "{3D78C125-8B9B-4B00-AA78-53DCA7FE24CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnScreenKeyboard", "OnScreenKeyboard\OnScreenKeyboard.csproj", "{A83B256B-1738-4D53-9F5E-1C0EB4628CA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnScreenKeyboardTest", "OnScreenKeyboardTest\OnScreenKeyboardTest.csproj", "{C2942D11-312C-4BFE-B108-469169D31F97}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D78C125-8B9B-4B00-AA78-53DCA7FE24CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D78C125-8B9B-4B00-AA78-53DCA7FE24CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D78C125-8B9B-4B00-AA78-53DCA7FE24CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D78C125-8B9B-4B00-AA78-53DCA7FE24CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A83B256B-1738-4D53-9F5E-1C0EB4628CA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A83B256B-1738-4D53-9F5E-1C0EB4628CA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A83B256B-1738-4D53-9F5E-1C0EB4628CA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A83B256B-1738-4D53-9F5E-1C0EB4628CA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2942D11-312C-4BFE-B108-469169D31F97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2942D11-312C-4BFE-B108-469169D31F97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2942D11-312C-4BFE-B108-469169D31F97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2942D11-312C-4BFE-B108-469169D31F97}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
