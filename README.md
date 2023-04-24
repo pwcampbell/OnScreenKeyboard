@@ -1,3 +1,15 @@
+# To run Ryan Stanley's branch
+change src/input.txt to edit search queries
+
+npm install
+npm start
+
+
+
+# ---------------------------------
+
+
+
 # On Screen Keyboard
 
 ## The Problem
