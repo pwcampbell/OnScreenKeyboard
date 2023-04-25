@@ -33,11 +33,14 @@ public class BasicCursorPathfinderTest {
 		try {
 			for (int i = 0; i < testInput.length; i++) {
 				testCount++;
-
+				
+				// Load test data embedded in resource files stored in the resources package.
 				ClassLoader classLoader = getClass().getClassLoader();
 				InputStream input = classLoader.getResourceAsStream(resourceDir + testInput[i]);
+				
 				bcp = new BasicCursorPathfinder();
 
+				// Load expected data and prepare actual output.
 				List<String> expected = Arrays.asList(testOutput[i]);
 				List<String> actual = bcp.buildPaths(input);
 
@@ -45,6 +48,7 @@ public class BasicCursorPathfinderTest {
 
 				System.out.println("Test " + testCount + " passed");
 			}
+		// Capture any thrown exceptions.
 		} catch (AssertionError | IOException e) {
 			System.out.println("Test " + testCount + " failed");
 			e.printStackTrace();
@@ -60,9 +64,11 @@ public class BasicCursorPathfinderTest {
 		
 		BasicCursorPathfinder bcp = new BasicCursorPathfinder();
 
+		// Test expected valid cursor data.
 		for (int[] pair : testInput)
 			bcp.setCursorPosition(pair[0], pair[1]);
 
+		// Test expected invalid cursor data and confirm an exception is thrown.
 		for (int[] pair : testInputException) {
 			assertThrows(IllegalArgumentException.class, () -> {
 				bcp.setCursorPosition(pair[0], pair[1]);
