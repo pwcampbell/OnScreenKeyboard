@@ -2,6 +2,8 @@ package pathfinder;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -41,27 +43,14 @@ public class BasicCursorPathfinder implements CursorPathfinder {
 	* @throws IOException  If an exception occurs while processing the "file" stream.
 	*/
 	public List<String> buildPaths(InputStream file) throws IOException {
-		StringBuilder sb = new StringBuilder();
 		List<String> paths = new ArrayList<String>();
-		int fileByte;
+		// Create a buffered reader for the file input stream.
+		BufferedReader reader = new BufferedReader(new InputStreamReader(file));
 		
-		// Read all characters from the file input stream.
-		do {
-			fileByte = file.read();
-			char c = (char) fileByte;
-			// Do not append the return carriage, newline, or EoF characters to the buffer.
-			if (fileByte != -1 && c != '\r' && c != '\n')
-				sb.append(c);
-			// Build a path with the current buffer when a newline is encountered and flush the buffer.
-			else if (c == '\n') {
-				paths.addAll(buildPaths(sb.toString()));
-				sb.setLength(0);
-			}
-		} while (fileByte != -1);
-		
-		// Build a final path if the buffer had contents when the stream ended.
-		if(sb.length() > 0)
-			paths.addAll(buildPaths(sb.toString()));
+		// Read each line from the stream, construct a path for it, and append it to the paths list.
+		while(reader.ready()) {
+			paths.addAll(buildPaths(reader.readLine()));
+		}
 		
 		return paths;
 	}
