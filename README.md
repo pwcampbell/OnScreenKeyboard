@@ -50,4 +50,16 @@ Have fun.
 Here are a couple of thoughts about the domain that could influence your response:
 
 - There is no guarantee that the keyboard layout will continue to be alphanumeric. How might you plan for this in your code?
+Answer:
+My assumption here is that we would add some sort of keyboard pagination (i.e. like selecting international or special characters from a mobile keyboard).  I would modify my algorithm as follows:
+1) Add a page character page dictionary that maps a character to which character page it appears in (i.e. 'A' -> 0, ';' -> 1, etc)
+2) Add coordinates for a page toggle button and a cyclical iterator that tells us which page we are currently on.
+3) The updated algorithm would then identify which page the target character is on and (assuming we aren't already on that page) path to the page toggle button and press it until we are on the correct page.
+4) Pathfinding from then on would commence normally.
+
+Otherwise, instead of having a single button to toggle character pages, we could store the coordinates of a character page button in a list structure and navigate to that button to set the correct page as described in step 3.
+
+This list would store int arrays corresponding to the coordinates of that page's button location (i.e. {1,1}, {2,1}, {3,1} means that the first page's button is at position {1,1}, the second is at {2,1}, etc).
+
 - What if the interface to get the string changed from a file to stream?
+My current implementation takes either Strings or InputStreams as input.  Any type of Java stream object should be able to provide input (not necessarily from a file, either) so long as it can be abstracted into an InputStream.
