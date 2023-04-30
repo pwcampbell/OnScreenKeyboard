@@ -14,12 +14,7 @@ fun main(args: Array<String>) {
         )
         val file = File(args[0])
 
-        println("on-screen keyboard layout:")
-        println(keyboard.layout.joinToString("\n") { it.joinToString("") })
-
-        println()
         file.forEachLine { searchString ->
-            println("$searchString:")
             println(keyboard.createInputPath(searchString).joinToString(","))
         }
     } catch (ex: Exception) {
