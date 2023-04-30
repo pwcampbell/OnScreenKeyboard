@@ -12,7 +12,7 @@ package com.epicstar
  * @author Jeremy Jao
  * @since 1.0
  */
-class OnScreenKeyboard(private val layout: List<List<Char>>) {
+class OnScreenKeyboard(val layout: List<List<Char>>) {
 
     /**
      * Internally, we do a reverse lookup from the [layout] by character, row, and column location.
