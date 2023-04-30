@@ -3,7 +3,7 @@ package com.epicstar
 /**
  * This is an on-screen keyboard implementation.
  *
- * Basically, this is a single level keyboard where rows and columns can be asymmetrical.
+ * Basically, this is a single level keyboard where columns can be asymmetrical.
  * Can have blank columns/rows. Use [Char.MIN_VALUE]!
  *
  * Space complexity: O(N) where N is the number of characters in the layout.
@@ -12,7 +12,12 @@ package com.epicstar
  * @author Jeremy Jao
  * @since 1.0.0
  */
-class OnScreenKeyboard(val layout: List<List<Char>>) {
+class OnScreenKeyboard(
+    /**
+     * The layout of the keyboard as a 2D list.
+     */
+    val layout: List<List<Char>>
+) {
 
     /**
      * Internally, we do a reverse lookup from the [layout] by character, row, and column location.
