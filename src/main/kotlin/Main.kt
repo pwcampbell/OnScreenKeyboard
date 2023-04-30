@@ -20,7 +20,7 @@ fun main(args: Array<String>) {
         println()
         file.forEachLine { searchString ->
             println("$searchString:")
-            println(keyboard.createInputPath(searchString).joinToString(", "))
+            println(keyboard.createInputPath(searchString).joinToString(","))
         }
     } catch (ex: Exception) {
         println("""
