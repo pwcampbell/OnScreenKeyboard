@@ -1,8 +1,62 @@
 # On Screen Keyboard
 
+## Description
+
+This is a simple on-screen keyboard written in Kotlin.
+
+Code can be found in [src/main/kotlin/com/epicstar/OnScreenKeyboard.kt](./src/main/kotlin/com/epicstar/OnScreenKeyboard.kt).
+
+For usage of the `OnScreenKeyboard`, see:
+1. The jar: [Main.kt](./src/main/kotlin/Main.kt)
+2. Unit tests: [OnScreenKeyboardTest.kt](./src/test/kotlin/com/epicstar/OnScreenKeyboardTest.kt)
+
+I used IntelliJ Community Edition, but you're free to use any text editor of IDE of choice as long as
+you use `./gradlew` to build or run. However, you may not have the same linter defined in IntelliJ.
+
+See below for how to use.
+
+## Usage
+
+### Prerequisites
+
+1. Java JDK 17+:
+   1. [Windows Installation using Choco](https://community.chocolatey.org/packages/oracle17jdk)
+   2. Ubuntu: `apt install openjdk-17-jdk`
+   3. [MacOS using Homebrew](https://formulae.brew.sh/formula/openjdk@17)
+2. Text file of search strings. NOTE: You can simply use [./samples/sample.txt](./samples/sample.txt)
+
+### Build the JAR
+
+```bash
+./gradlew jar
+```
+
+The jar will save to `./build/libs`.
+
+### Run the JAR
+
+Find the jar file
+```bash
+cd build/libs
+```
+
+Now run the jar with [./samples/sample.txt](./samples/sample.txt):
+```bash
+java -jar OnScreenKeyboard-1.0.0.jar ../../samples/sample.txt
+```
+
+Or you can use your own txt file!
+
+### Run the unit tests
+
+```bash
+./gradlew test
+```
+
+
 ## The Problem
 
-On screen keyboards are the bane of DVR users. To help alleviate the pain, one local company is asking you to implement part of a voice to text search for their DVR by developing an algorithm to script the on screen keyboard.
+On screen keyboards are the bane of DVR users. To help alleviate the pain, one local company is asking you to implement part of a voice to text search for their DVR by developing an algorithm to script the on-screen keyboard.
 The keyboard is laid out as follows:
 
 ```

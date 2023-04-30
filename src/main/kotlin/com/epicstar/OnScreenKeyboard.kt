@@ -10,7 +10,7 @@ package com.epicstar
  * Time complexity of [createInputPath]: O(N), where N is the number of possible moves, at least as much as the number of characters
  *
  * @author Jeremy Jao
- * @since 1.0
+ * @since 1.0.0
  */
 class OnScreenKeyboard(val layout: List<List<Char>>) {
 
@@ -61,7 +61,7 @@ class OnScreenKeyboard(val layout: List<List<Char>>) {
      *
      * @param search the search string that was inputted
      *
-     * @since 1.0
+     * @since 1.0.0
      * @throws IllegalArgumentException if the
      * @return The list of moves that the cursor makes
      */
